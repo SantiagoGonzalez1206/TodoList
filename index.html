@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <script type="module" src="./js/main.js" defer></script>
+    <title>TodoList</title>
+</head>
+<body>
+    <section class="title">
+        <p>Just do it.</p>
+    </section>
+    <section class="search">
+        <input type="text" placeholder="Add a task">
+        <button class="search_button">I Got This!</button>
+    </section>
+    <section class="date">
+        <div id="datetime"></div>
+        <script>
+            function updateDateTime() {
+            const now = new Date();
+            const date = now.toLocaleDateString('es-ES', {
+                year: 'numeric', 
+                month: '2-digit', 
+                day: '2-digit'
+            });
+            const time = now.toLocaleTimeString('es-ES', {
+                hour: '2-digit', 
+                minute: '2-digit', 
+                second: '2-digit'
+            });
+            document.getElementById('datetime').innerText = `${date} ${time}`;
+        }
+
+        setInterval(updateDateTime, 1000);
+        updateDateTime();
+        </script>
+    </section>
+    <section class="tasks_menu">
+        <div class="tasks_menu_task">
+            <div>
+                <p>Examen Javascript</p>
+            </div>
+            <div class="task_imgs"> 
+                <img src="./storage/imgs/check.webp">
+                <img src="./storage/imgs/trash.webp">
+            </div>
+        </div>
+        <div class="tasks_menu_task_complete">
+            <div>
+                <del>Proyecto Javascript</del>
+            </div>
+            <div class="task_imgs"> 
+                <img src="./storage/imgs/check.webp">
+                <img src="./storage/imgs/trash.webp">
+            </div>
+        </div>
+    </section>
+</body>
+</html>
