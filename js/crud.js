@@ -16,7 +16,7 @@ export const AddToDo = async (arg) => {
 };
 
 
-const validarAgregarTarea = async (act) => {
+const validarAgregarTarea = (act) => {
     if (typeof act.task !== "string" || act.task === undefined) {
         return { status: 406, message: "Los datos de la tarea no estan llegando correctamente" };
     }
