@@ -13,7 +13,7 @@ body{
 }
 
 .title{
-    font-size:7pc;
+    font-size:12vh;
     color: white;
     margin-bottom: -3%;
 }
@@ -49,11 +49,21 @@ body{
 
 .date{
     color: white;
+    margin-bottom: 2vh;
 }
 
 .tasks_menu{
     display: flex;
     flex-direction: column;
+    height: 47vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -ms-overflow-style: none; 
+    padding-right: 30px;
+}
+
+::-webkit-scrollbar {
+    display: none;
 }
 
 .tasks_menu_task{
@@ -122,4 +132,12 @@ body{
     display: flex;
     flex-direction: row;
     justify-content: end;
+}
+
+.delete:hover{
+    box-shadow: #19334b;
+}
+
+.ex{
+    background-color: white;
 }

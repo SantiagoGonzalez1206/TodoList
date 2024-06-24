@@ -61,7 +61,18 @@ export const getAllCompleteTasks = async()=>{
 export const reload = async()=>{
     setTimeout(() => {
         location.reload();
-    }, 1000);
+    }, 200);
+}
+
+export const deleteTask = async(id)=>{
+    console.log("Esperando .......");
+    const url = `https://66760dffa8d2b4d072f2497f.mockapi.io/toDoList/${id}`;
+    const options = {
+        method: 'DELETE'
+    };
+    let res = await fetch(url, options);
+    let data = await res.json();
+    return data
 }
 
 // export const updateTask = async(arg)=>{
