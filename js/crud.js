@@ -54,15 +54,14 @@ export const getAllCompleteTasks = async()=>{
 
 
     let filteredData = data.filter(item => item.status === "ready");
+    let definitiveData = filteredData.reverse()
 
-    return filteredData;
+    return definitiveData;
 }
 
-export const reload = async()=>{
-    setTimeout(() => {
-        location.reload();
-    }, 200);
-}
+
+
+//Delete
 
 export const deleteTask = async(id)=>{
     console.log("Esperando .......");
@@ -75,6 +74,35 @@ export const deleteTask = async(id)=>{
     return data
 }
 
+
+//Post
+
+export const Update = async (id, status) => {
+    const url = `https://66760dffa8d2b4d072f2497f.mockapi.io/toDoList/${id}`;
+    const options = {
+        method: "PUT",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify( {status} ),
+    };
+
+    try {
+        const response = await fetch(url, options);
+        if (!response.ok) {
+            throw new Error("Network response was not ok");
+        }
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error("Error changing status to ready:", error);
+    }
+};
+
+
+export const reload = async()=>{
+    setTimeout(() => {
+        location.reload();
+    }, 200);
+}
 // export const updateTask = async(arg)=>{
 //     let {id} = val
 //     let config = {

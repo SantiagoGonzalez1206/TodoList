@@ -1,4 +1,4 @@
-import { AddToDo, deleteTask, getAllCompleteTasks, getAllPendingTasks, reload } from "./crud.js";
+import { AddToDo, deleteTask, getAllCompleteTasks, getAllPendingTasks, reload, Update } from "./crud.js";
 import { taskPending, taskComplete, taskPending1} from "./tasks.js";
 
 
@@ -7,7 +7,6 @@ let complete = document.querySelector(".complete")
 let search_input = document.querySelector("#search_input")
 let search_button = document.querySelector(".search_button")
 let deletes = document.querySelector(".delete")
-let check = document.querySelector(".check")
 let fallingElement = document.querySelector("#fallingElement")
 
 
@@ -44,7 +43,7 @@ addEventListener("DOMContentLoaded", async()=>{
     //     let post = updateTask()
     // })
 
-    document.querySelectorAll(".delete").forEach(basuraBtn => {
+    document.querySelectorAll("#delete").forEach(basuraBtn => {
         basuraBtn.addEventListener("click", async (e) => {
             let dataId = e.target.dataset.id;
             await deleteTask(dataId);
@@ -55,4 +54,30 @@ addEventListener("DOMContentLoaded", async()=>{
             reload()
         })
     });
+
+    document.querySelectorAll("#check").forEach( readyBtn => {
+        readyBtn.addEventListener("click", async(e) => {
+            let dataId = e.target.dataset.id;
+            let status = "ready"
+            await Update(dataId, status);
+            await getAllCompleteTasks(); 
+            
+            reload()
+
+        })
+        
+    })
+    
+    document.querySelectorAll("#reuse").forEach( readyBtn => {
+        readyBtn.addEventListener("click", async(e) => {
+            let dataId = e.target.dataset.id;
+            let status = "On hold"
+            await Update(dataId, status);
+            await getAllCompleteTasks(); 
+            
+            reload()
+
+        })
+        
+    })
 })

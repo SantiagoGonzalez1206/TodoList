@@ -7,13 +7,12 @@ export const taskPending = (infoPend)=>{
                     <p>${infoPend[i].task}</p>
                 </div>
                 <div class="task_imgs"> 
-                    <img class="check" src="./storage/imgs/check.webp">
-                    <img data-id="${infoPend[i].id}" class="delete" src="./storage/imgs/trash.webp">
+                    <img data-id="${infoPend[i].id}" id="check" src="./storage/imgs/check.webp">
+                    <img data-id="${infoPend[i].id}" id="delete" src="./storage/imgs/trash.webp">
                 </div>
             </div>
             `
             }
-        console.log(plantilla);
         return plantilla
     }
 
@@ -26,13 +25,12 @@ export const taskComplete = async(infoComp)=>{
                 <del>${infoComp[i].task}</del>
             </div>
             <div class="task_imgs"> 
-                <img class="reuse" src="./storage/imgs/ex.png">
-                <img data-id="${infoComp[i].id}" class="delete" src="./storage/imgs/trash.webp">
+                <img  data-id="${infoComp[i].id}" id="reuse" src="./storage/imgs/ex.png">
+                <img data-id="${infoComp[i].id}" id="delete" src="./storage/imgs/trash.webp">
             </div>
         </div>
     `
     }
-    console.log(plantilla)
     return plantilla
 }
 
