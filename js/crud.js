@@ -16,6 +16,7 @@ export const AddToDo = async (arg) => {
 };
 
 
+
 const validarAgregarTarea = (act) => {
     if (typeof act.task !== "string" || act.task === undefined) {
         return { status: 406, message: "Los datos de la tarea no estan llegando correctamente" };
@@ -36,8 +37,9 @@ export const getAllPendingTasks = async()=>{
 
 
     let filteredData = data.filter(item => item.status === "On hold");
+    let definitiveData = filteredData.reverse()
 
-    return filteredData;
+    return definitiveData;
 }
 
 export const getAllCompleteTasks = async()=>{
@@ -55,3 +57,21 @@ export const getAllCompleteTasks = async()=>{
 
     return filteredData;
 }
+
+export const reload = async()=>{
+    setTimeout(() => {
+        location.reload();
+    }, 1000);
+}
+
+// export const updateTask = async(arg)=>{
+//     let {id} = val
+//     let config = {
+//         method: "PUT",
+//         headers: {"Content-Type": "application/json"},
+//         body: JSON.stringify(arg)
+//     }
+//     let res = await fetch(`https://66760dffa8d2b4d072f2497f.mockapi.io/toDoList/${id}`, config);
+//     let data = await res.json()
+//     return data
+// }

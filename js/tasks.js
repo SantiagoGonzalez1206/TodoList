@@ -8,7 +8,7 @@ export const taskPending = (infoPend)=>{
             <p>${infoPend[i].task}</p>
         </div>
         <div class="task_imgs"> 
-            <img src="./storage/imgs/check.webp">
+            <img class="check" src="./storage/imgs/check.webp">
             <img src="./storage/imgs/trash.webp">
         </div>
     </div>
